@@ -19,7 +19,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between py-3 md:py-4">
           <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/images/logo.jpg" alt="Core & Patch" className="w-10 h-10 md:w-12 md:h-12" />
+            <img src="/images/logo.jpg" alt="Core & Patch" className="w-10 h-10 md:w-12 md:h-12 rounded-lg" />
           </a>
           <div className="hidden md:flex gap-6 lg:gap-8">
             <a href="#como-funciona" className="text-sm hover:text-primary transition-colors">
@@ -70,7 +70,7 @@ export default function Home() {
               <img
                 src="/images/hero-abstract.png"
                 alt="Conceito técnico minimalista"
-                className="w-full h-auto"
+                className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function Home() {
               <img
                 src="/images/process-visual.png"
                 alt="Processo em 3 etapas"
-                className="w-full h-auto"
+                className="w-full h-auto rounded-2xl shadow-lg"
               />
             </div>
             <div className="space-y-12">
@@ -204,7 +204,7 @@ export default function Home() {
               <img
                 src="/images/maintenance-concept.png"
                 alt="Conceito de manutenção contínua"
-                className="w-full h-auto"
+                className="w-full h-auto rounded-2xl shadow-lg"
               />
             </div>
             <div>
@@ -287,7 +287,7 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
             <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src="/images/logo.jpg" alt="Core & Patch" className="w-6 h-6" />
+              <img src="/images/logo.jpg" alt="Core & Patch" className="w-6 h-6 rounded" />
               <span className="hidden sm:inline">Core & Patch</span>
             </a>
             <div className="text-center sm:text-left">

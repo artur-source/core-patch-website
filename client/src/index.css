@@ -205,6 +205,24 @@
 
   /* Card with subtle border */
   .card-minimal {
-    @apply bg-card text-card-foreground border border-border rounded-lg p-6;
+    @apply bg-card text-card-foreground border border-border rounded-lg p-6 transition-all duration-300;
+  }
+  
+  .card-minimal:hover {
+    @apply shadow-lg transform scale-[1.02];
+  }
+  
+  /* Smooth image transitions */
+  img {
+    @apply transition-transform duration-500;
+  }
+  
+  img:hover {
+    @apply scale-[1.02];
+  }
+  
+  /* Enhanced button animations */
+  button, a[href] {
+    @apply transition-all duration-300;
   }
 }
