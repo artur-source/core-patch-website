@@ -17,14 +17,11 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="container flex items-center justify-between py-4 md:py-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full border-2 border-primary flex items-center justify-center">
-              <span className="text-sm font-bold text-primary">C&P</span>
-            </div>
-            <span className="font-bold text-lg">Core & Patch</span>
-          </div>
-          <div className="flex gap-4">
+        <div className="container flex items-center justify-between py-3 md:py-4">
+          <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="/images/logo.jpg" alt="Core & Patch" className="w-10 h-10 md:w-12 md:h-12" />
+          </a>
+          <div className="hidden md:flex gap-6 lg:gap-8">
             <a href="#como-funciona" className="text-sm hover:text-primary transition-colors">
               Como funciona
             </a>
@@ -38,25 +35,32 @@ export default function Home() {
               Contato
             </a>
           </div>
+          <div className="md:hidden">
+            <button className="text-foreground hover:text-primary transition-colors">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="section-spacing">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             <div>
-              <h1 className="mb-6">
+              <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl">
                 Estrutura bem feita.
                 <br />
                 <span className="text-primary">Manutenção contínua.</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                 Desenvolvemos sites sob medida para pequenos negócios. Não fazemos volume. Fazemos estrutura. E sustentamos depois.
               </p>
-              <div className="flex gap-4">
-                <a href="#contato">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a href="#contato" className="w-full sm:w-auto">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 w-full">
                     Conversar
                   </Button>
                 </a>
@@ -79,8 +83,8 @@ export default function Home() {
       {/* O que fazemos */}
       <section className="section-spacing">
         <div className="container">
-          <h2 className="mb-16 text-center">O que fazemos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <h2 className="mb-12 md:mb-16 text-center text-3xl md:text-4xl">O que fazemos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             <div className="card-minimal">
               <h3 className="text-xl mb-4">Desenvolvimento sob medida</h3>
               <p className="text-muted-foreground">
@@ -109,7 +113,7 @@ export default function Home() {
       {/* Como funciona */}
       <section className="section-spacing" id="como-funciona">
         <div className="container">
-          <h2 className="mb-16 text-center">Como funciona</h2>
+          <h2 className="mb-12 md:mb-16 text-center text-3xl md:text-4xl">Como funciona</h2>
           <div className="max-w-4xl mx-auto">
             <div className="hidden lg:block mb-16">
               <img
@@ -155,8 +159,8 @@ export default function Home() {
       {/* Projetos */}
       <section className="section-spacing" id="projetos">
         <div className="container">
-          <h2 className="mb-16 text-center">Projetos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <h2 className="mb-12 md:mb-16 text-center text-3xl md:text-4xl">Projetos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
             <a
               href="https://artur-source.github.io/RegiFlex/"
               target="_blank"
@@ -195,7 +199,7 @@ export default function Home() {
       {/* Manutenção */}
       <section className="section-spacing" id="manutencao">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             <div className="hidden lg:block">
               <img
                 src="/images/maintenance-concept.png"
@@ -241,8 +245,8 @@ export default function Home() {
       <section className="section-spacing" id="contato">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="mb-6">Vamos conversar?</h2>
-            <p className="text-lg text-muted-foreground mb-12">
+            <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl">Vamos conversar?</h2>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12">
               Tem um projeto em mente? Quer saber mais sobre como podemos ajudar? Entre em contato.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -266,12 +270,12 @@ export default function Home() {
                 </Button>
               </a>
             </div>
-            <div className="mt-8 text-sm text-muted-foreground">
+            <div className="mt-6 md:mt-8 text-xs md:text-sm text-muted-foreground space-y-2">
               <p>
                 WhatsApp: <a href={whatsappUrl} className="text-primary hover:underline">(11) 9 4057-2858</a>
               </p>
               <p>
-                Email: <a href={`mailto:${emailAddress}`} className="text-primary hover:underline">{emailAddress}</a>
+                Email: <a href={`mailto:${emailAddress}`} className="text-primary hover:underline break-all">{emailAddress}</a>
               </p>
             </div>
           </div>
@@ -279,19 +283,17 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 md:py-12">
+      <footer className="border-t border-border py-6 md:py-8 lg:py-12">
         <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
-                <span className="text-xs font-bold text-primary">C&P</span>
-              </div>
-              <span>Core & Patch</span>
-            </div>
-            <div>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
+            <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <img src="/images/logo.jpg" alt="Core & Patch" className="w-6 h-6" />
+              <span className="hidden sm:inline">Core & Patch</span>
+            </a>
+            <div className="text-center sm:text-left">
               © 2025 Core & Patch. Estrutura bem feita. Manutenção contínua.
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 WhatsApp
               </a>
