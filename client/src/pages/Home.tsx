@@ -176,7 +176,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href="https://artur-source.github.io/JVSTORE/"
+              href="https://jvstore.com.br"
               target="_blank"
               rel="noopener noreferrer"
               className="card-minimal hover:border-primary transition-colors group"
