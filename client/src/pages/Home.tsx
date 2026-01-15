@@ -178,9 +178,9 @@ export default function Home() {
                   Email
                 </a>
               </div>
-              <div className="mt-16 pt-8 border-t border-primary/10 text-xs tracking-[0.2em] text-muted-foreground space-y-4">
-                <p>SÃO PAULO, BRASIL</p>
-                <p>COREPATCH.DEV@GMAIL.COM</p>
+              <div className="mt-16 pt-8 border-t border-primary/10 text-xs tracking-[0.2em] text-muted-foreground space-y-4 flex flex-col items-center">
+                <p className="w-full text-center">SÃO PAULO, BRASIL</p>
+                <p className="w-full text-center break-all">COREPATCH.DEV@GMAIL.COM</p>
               </div>
             </div>
           </div>
