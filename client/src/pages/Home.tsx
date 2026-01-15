@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle, X } from "lucide-react";
+import { Mail, MessageCircle, X, Instagram } from "lucide-react";
 
 /**
  * Core & Patch - Institutional Website
@@ -17,6 +17,7 @@ export default function Home() {
   const whatsappNumber = "5511940572858";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá%20Core%20%26%20Patch%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto.`;
   const emailAddress = "corepatch.dev@gmail.com";
+  const instagramUrl = "https://www.instagram.com/corepatch.dev?igsh=MXh6eTNkeWJzbXNnYQ==";
 
   const navLinks = [
     { href: "#sobre", label: "Sobre" },
@@ -218,6 +219,10 @@ export default function Home() {
                   <Mail className="w-4 h-4" />
                   Email
                 </a>
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco flex items-center justify-center gap-2">
+                  <Instagram className="w-4 h-4" />
+                  Instagram
+                </a>
               </div>
               <div className="mt-16 pt-8 border-t border-primary/10 text-xs tracking-[0.2em] text-muted-foreground space-y-4 flex flex-col items-center">
                 <p className="w-full text-center">SÃO PAULO, BRASIL</p>
@@ -244,6 +249,9 @@ export default function Home() {
               </a>
               <a href={`mailto:${emailAddress}`} className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
                 Email
+              </a>
+              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
+                Instagram
               </a>
             </div>
           </div>
