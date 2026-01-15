@@ -1,5 +1,8 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, X } from "lucide-react";
 
 /**
  * Core & Patch - Institutional Website
@@ -9,40 +12,78 @@ import { Mail, MessageCircle } from "lucide-react";
  */
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const whatsappNumber = "5511940572858";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá%20Core%20%26%20Patch%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto.`;
   const emailAddress = "corepatch.dev@gmail.com";
+
+  const navLinks = [
+    { href: "#sobre", label: "Sobre" },
+    { href: "#servicos", label: "Serviços" },
+    { href: "#projetos", label: "Projetos" },
+    { href: "#contato", label: "Contato" },
+  ];
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-primary/30">
         <div className="container flex items-center justify-between py-6">
-          <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity" onClick={closeMobileMenu}>
             <span className="text-xl font-extrabold tracking-[0.3em] text-primary">CORE & PATCH</span>
           </a>
+          
+          {/* Desktop Menu */}
           <div className="hidden md:flex gap-10">
-            <a href="#sobre" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
-              Sobre
-            </a>
-            <a href="#servicos" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
-              Serviços
-            </a>
-            <a href="#projetos" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
-              Projetos
-            </a>
-            <a href="#contato" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
-              Contato
-            </a>
+            {navLinks.map((link) => (
+              <a 
+                key={link.href}
+                href={link.href} 
+                className="text-xs uppercase tracking-widest hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
+          
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className="text-primary">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8h16M4 16h16" />
-              </svg>
+            <button 
+              className="text-primary hover:opacity-80 transition-opacity"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8h16M4 16h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-primary/30 bg-background">
+            <div className="container py-6 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs uppercase tracking-widest hover:text-primary transition-colors py-3 border-b border-primary/10 last:border-b-0"
+                  onClick={closeMobileMenu}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
