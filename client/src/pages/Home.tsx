@@ -3,9 +3,9 @@ import { Mail, MessageCircle } from "lucide-react";
 
 /**
  * Core & Patch - Institutional Website
- * Design: Bauhaus Swiss Minimalism
- * Color: Dark background (#0a0a0a), white text, blue-gray accent (#6b8fa3)
- * Typography: Poppins (display), Inter (body)
+ * Design: Art Déco Reinterpretado
+ * Color: Deep Black (#0B0B0B), Off-white (#F2F2ED), Matte Gold (#BFA66A)
+ * Typography: Montserrat (titles), Inter (body)
  */
 
 export default function Home() {
@@ -14,31 +14,31 @@ export default function Home() {
   const emailAddress = "corepatch.dev@gmail.com";
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="container flex items-center justify-between py-3 md:py-4">
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-primary/30">
+        <div className="container flex items-center justify-between py-6">
           <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/images/logo.jpg" alt="Core & Patch" className="w-10 h-10 md:w-12 md:h-12 rounded-lg" />
+            <span className="text-xl font-extrabold tracking-[0.3em] text-primary">CORE & PATCH</span>
           </a>
-          <div className="hidden md:flex gap-6 lg:gap-8">
-            <a href="#como-funciona" className="text-sm hover:text-primary transition-colors">
-              Como funciona
+          <div className="hidden md:flex gap-10">
+            <a href="#sobre" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
+              Sobre
             </a>
-            <a href="#projetos" className="text-sm hover:text-primary transition-colors">
+            <a href="#servicos" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
+              Serviços
+            </a>
+            <a href="#projetos" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
               Projetos
             </a>
-            <a href="#manutencao" className="text-sm hover:text-primary transition-colors">
-              Manutenção
-            </a>
-            <a href="#contato" className="text-sm hover:text-primary transition-colors">
+            <a href="#contato" className="text-xs uppercase tracking-widest hover:text-primary transition-colors">
               Contato
             </a>
           </div>
           <div className="md:hidden">
-            <button className="text-foreground hover:text-primary transition-colors">
+            <button className="text-primary">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8h16M4 16h16" />
               </svg>
             </button>
           </div>
@@ -46,258 +46,162 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="section-spacing">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-            <div>
-              <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl">
-                Estrutura bem feita.
-                <br />
-                <span className="text-primary">Manutenção contínua.</span>
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
-                Desenvolvemos sites sob medida para pequenos negócios. Não fazemos volume. Fazemos estrutura. E sustentamos depois.
+      <section className="relative min-h-[80vh] flex items-center justify-center border-b border-primary/40 overflow-hidden">
+        {/* Decorative background lines */}
+        <div className="absolute inset-0 flex justify-between px-10 opacity-5 pointer-events-none">
+          <div className="w-px h-full bg-primary"></div>
+          <div className="w-px h-full bg-primary"></div>
+          <div className="w-px h-full bg-primary"></div>
+          <div className="w-px h-full bg-primary"></div>
+        </div>
+
+        <div className="container relative z-10 text-center">
+          <div className="inline-block mb-8">
+            <div className="w-12 h-px bg-primary mx-auto mb-8"></div>
+            <h1 className="mb-4 fade-in-up">
+              CORE & PATCH
+            </h1>
+            <div className="space-y-2 fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <p className="text-primary text-lg md:text-xl tracking-[0.4em] font-bold uppercase">
+                CORE CONSTRÓI.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <a href="#contato" className="w-full sm:w-auto">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 w-full">
-                    Conversar
-                  </Button>
-                </a>
-              </div>
+              <p className="text-primary text-lg md:text-xl tracking-[0.4em] font-bold uppercase">
+                PATCH SUSTENTA.
+              </p>
             </div>
-            <div className="hidden lg:block">
-              <img
-                src="/images/hero-abstract.png"
-                alt="Conceito técnico minimalista"
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
+            <div className="w-full h-px bg-primary mt-12 opacity-60"></div>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="divider" />
-
-      {/* O que fazemos */}
-      <section className="section-spacing">
+      {/* Sobre */}
+      <section className="section-spacing" id="sobre">
         <div className="container">
-          <h2 className="mb-12 md:mb-16 text-center text-3xl md:text-4xl">O que fazemos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-            <div className="card-minimal">
-              <h3 className="text-xl mb-4">Desenvolvimento sob medida</h3>
-              <p className="text-muted-foreground">
-                Sites institucionais e catálogos pensados para sua marca. Cada projeto é único, feito com atenção aos detalhes.
-              </p>
-            </div>
-            <div className="card-minimal">
-              <h3 className="text-xl mb-4">Preparado para crescer</h3>
-              <p className="text-muted-foreground">
-                Arquitetura escalável. Seu site cresce com você, sem precisar ser refeito. Organização desde o início.
-              </p>
-            </div>
-            <div className="card-minimal">
-              <h3 className="text-xl mb-4">Suporte contínuo</h3>
-              <p className="text-muted-foreground">
-                Não entregamos e desaparecemos. Acompanhamos, ajustamos, corrigimos. O trabalho não termina na entrega.
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="mb-12">Sobre</h2>
+            <div className="deco-frame">
+              <p className="text-lg md:text-xl leading-relaxed text-foreground/90">
+                A Core & Patch traduz estrutura, permanência e autoridade em soluções digitais. 
+                Desenvolvemos arquiteturas técnicas sólidas para negócios que buscam longevidade. 
+                Não seguimos tendências passageiras; construímos o que foi feito para durar.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="divider" />
-
-      {/* Como funciona */}
-      <section className="section-spacing" id="como-funciona">
+      {/* Serviços */}
+      <section className="section-spacing bg-secondary/10" id="servicos">
         <div className="container">
-          <h2 className="mb-12 md:mb-16 text-center text-3xl md:text-4xl">Como funciona</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="hidden lg:block mb-16">
-              <img
-                src="/images/process-visual.png"
-                alt="Processo em 3 etapas"
-                className="w-full h-auto rounded-2xl shadow-lg"
-              />
+          <h2 className="mb-20 text-center">Serviços</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-primary/20">
+            <div className="p-10 border-b md:border-b-0 md:border-r border-primary/20 hover:bg-secondary/20 transition-colors">
+              <span className="text-primary text-xs font-bold tracking-widest mb-6 block">01</span>
+              <h3 className="mb-6">ESTRUTURA</h3>
+              <p className="text-muted-foreground text-sm">
+                Desenvolvimento de sites institucionais e catálogos com foco em engenharia de software e performance.
+              </p>
             </div>
-            <div className="space-y-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <div className="text-primary text-sm font-semibold mb-2">ETAPA 1</div>
-                  <h3 className="text-2xl mb-4">Alinhamento</h3>
-                  <p className="text-muted-foreground">
-                    Conversamos sobre seu negócio, objetivos e público. Entendemos o que você precisa antes de qualquer código.
-                  </p>
-                </div>
-                <div>
-                  <div className="text-primary text-sm font-semibold mb-2">ETAPA 2</div>
-                  <h3 className="text-2xl mb-4">Desenvolvimento</h3>
-                  <p className="text-muted-foreground">
-                    Criamos seu site com código limpo, estruturado e preparado para o futuro. Testes, ajustes, entrega.
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <div className="text-primary text-sm font-semibold mb-2">ETAPA 3</div>
-                  <h3 className="text-2xl mb-4">Suporte e manutenção</h3>
-                  <p className="text-muted-foreground">
-                    Após a entrega, continuamos aqui. Correções, melhorias, atualizações. Seu site sempre funcionando bem.
-                  </p>
-                </div>
-              </div>
+            <div className="p-10 border-b md:border-b-0 md:border-r border-primary/20 hover:bg-secondary/20 transition-colors">
+              <span className="text-primary text-xs font-bold tracking-widest mb-6 block">02</span>
+              <h3 className="mb-6">ESCALA</h3>
+              <p className="text-muted-foreground text-sm">
+                Arquitetura preparada para o crescimento, garantindo que sua presença digital evolua sem necessidade de reconstrução.
+              </p>
+            </div>
+            <div className="p-10 hover:bg-secondary/20 transition-colors">
+              <span className="text-primary text-xs font-bold tracking-widest mb-6 block">03</span>
+              <h3 className="mb-6">SUSTENTAÇÃO</h3>
+              <p className="text-muted-foreground text-sm">
+                Manutenção contínua, monitoramento e suporte técnico dedicado para garantir estabilidade absoluta.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Divider */}
-      <div className="divider" />
 
       {/* Projetos */}
       <section className="section-spacing" id="projetos">
         <div className="container">
-          <h2 className="mb-12 md:mb-16 text-center text-3xl md:text-4xl">Projetos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
+          <h2 className="mb-20 text-center">Projetos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <a
               href="https://artur-source.github.io/RegiFlex/"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-minimal hover:border-primary transition-colors group"
+              className="group block"
             >
-              <h3 className="text-xl mb-2 group-hover:text-primary transition-colors">RegiFlex</h3>
-              <p className="text-muted-foreground text-sm">
-                Plataforma de gestão de registros. Interface limpa, funcional e intuitiva.
-              </p>
-              <div className="mt-4 text-primary text-sm font-semibold">
-                Ver projeto →
+              <div className="card-artdeco relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <h3 className="mb-4 group-hover:text-primary transition-colors">RegiFlex</h3>
+                <p className="text-muted-foreground text-sm mb-8">
+                  Plataforma de gestão de registros. Interface técnica, funcional e de alta precisão.
+                </p>
+                <span className="text-xs font-bold tracking-widest uppercase text-primary">Ver Projeto —</span>
               </div>
             </a>
             <a
               href="https://jvstore.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-minimal hover:border-primary transition-colors group"
+              className="group block"
             >
-              <h3 className="text-xl mb-2 group-hover:text-primary transition-colors">JVSTORE</h3>
-              <p className="text-muted-foreground text-sm">
-                Loja online com catálogo organizado. Experiência de compra clara e segura.
-              </p>
-              <div className="mt-4 text-primary text-sm font-semibold">
-                Ver projeto →
+              <div className="card-artdeco relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <h3 className="mb-4 group-hover:text-primary transition-colors">JVSTORE</h3>
+                <p className="text-muted-foreground text-sm mb-8">
+                  Catálogo digital organizado. Experiência de navegação clara, segura e estruturada.
+                </p>
+                <span className="text-xs font-bold tracking-widest uppercase text-primary">Ver Projeto —</span>
               </div>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="divider" />
-
-      {/* Manutenção */}
-      <section className="section-spacing" id="manutencao">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-            <div className="hidden lg:block">
-              <img
-                src="/images/maintenance-concept.png"
-                alt="Conceito de manutenção contínua"
-                className="w-full h-auto rounded-2xl shadow-lg"
-              />
-            </div>
-            <div>
-              <h2 className="mb-6">Manutenção não é luxo</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Um site bem feito precisa de acompanhamento. Atualizações de segurança, correções, melhorias. Nós cuidamos disso.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Você não precisa se preocupar. Seu site continua funcionando, seguro e preparado para crescer. Organização e continuidade.
-              </p>
-              <div className="space-y-3 text-muted-foreground">
-                <div className="flex gap-3">
-                  <span className="text-primary font-bold">✓</span>
-                  <span>Monitoramento contínuo</span>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-primary font-bold">✓</span>
-                  <span>Atualizações de segurança</span>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-primary font-bold">✓</span>
-                  <span>Suporte técnico disponível</span>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-primary font-bold">✓</span>
-                  <span>Melhorias e otimizações</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider" />
-
       {/* Contato */}
       <section className="section-spacing" id="contato">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl">Vamos conversar?</h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12">
-              Tem um projeto em mente? Quer saber mais sobre como podemos ajudar? Entre em contato.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 w-full sm:w-auto"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
+            <h2 className="mb-12">Escritório</h2>
+            <div className="border border-primary/30 p-12 bg-secondary/5">
+              <p className="text-muted-foreground mb-12 uppercase tracking-widest text-sm">
+                Inicie uma consulta técnica
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco flex items-center justify-center gap-2">
+                  <MessageCircle className="w-4 h-4" />
                   WhatsApp
-                </Button>
-              </a>
-              <a href={`mailto:${emailAddress}`}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10"
-                >
-                  <Mail className="mr-2 h-5 w-5" />
+                </a>
+                <a href={`mailto:${emailAddress}`} className="btn-artdeco flex items-center justify-center gap-2">
+                  <Mail className="w-4 h-4" />
                   Email
-                </Button>
-              </a>
-            </div>
-            <div className="mt-6 md:mt-8 text-xs md:text-sm text-muted-foreground space-y-2">
-              <p>
-                WhatsApp: <a href={whatsappUrl} className="text-primary hover:underline">(11) 9 4057-2858</a>
-              </p>
-              <p>
-                Email: <a href={`mailto:${emailAddress}`} className="text-primary hover:underline break-all">{emailAddress}</a>
-              </p>
+                </a>
+              </div>
+              <div className="mt-16 pt-8 border-t border-primary/10 text-xs tracking-[0.2em] text-muted-foreground space-y-4">
+                <p>SÃO PAULO, BRASIL</p>
+                <p>COREPATCH.DEV@GMAIL.COM</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 md:py-8 lg:py-12">
+      <footer className="py-12 border-t border-primary/20">
         <div className="container">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
-            <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src="/images/logo.jpg" alt="Core & Patch" className="w-6 h-6 rounded" />
-              <span className="hidden sm:inline">Core & Patch</span>
-            </a>
-            <div className="text-center sm:text-left">
-              © 2025 Core & Patch. Estrutura bem feita. Manutenção contínua.
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-xs tracking-[0.3em] font-bold text-primary">
+              CORE & PATCH
             </div>
-            <div className="flex gap-3 sm:gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground text-center md:text-left">
+              © 2026 Core & Patch. Estrutura constrói. Sustentação mantém.
+            </div>
+            <div className="flex gap-8">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
                 WhatsApp
               </a>
-              <a href={`mailto:${emailAddress}`} className="hover:text-primary transition-colors">
+              <a href={`mailto:${emailAddress}`} className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
                 Email
               </a>
             </div>

@@ -4,10 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -27,11 +27,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -42,187 +37,139 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Core & Patch - Bauhaus Swiss Dark Theme */
+/* Core & Patch - Art Déco Reinterpretado */
 :root {
-  /* Primary accent: Blue-gray (#6b8fa3) */
-  --primary: oklch(0.52 0.15 260);
-  --primary-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.52 0.15 260);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --chart-1: oklch(0.52 0.15 260);
-  --chart-2: oklch(0.55 0.16 258);
-  --chart-3: oklch(0.50 0.14 262);
-  --chart-4: oklch(0.48 0.13 264);
-  --chart-5: oklch(0.45 0.12 266);
+  /* Paleta de Cores */
+  --background: #0B0B0B; /* Preto profundo */
+  --foreground: #F2F2ED; /* Off-white quente */
   
-  /* Radius: Subtle, not excessive */
-  --radius: 0.5rem;
+  --primary: #BFA66A;    /* Dourado fosco */
+  --primary-foreground: #0B0B0B;
   
-  /* Dark background: Preto profundo (#0a0a0a) */
-  --background: oklch(0.06 0.01 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.10 0.01 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.10 0.01 0);
-  --popover-foreground: oklch(1 0 0);
+  --secondary: #2A2A2A;  /* Cinza grafite */
+  --secondary-foreground: #F2F2ED;
   
-  /* Secondary: Cinza escuro para elementos secundários */
-  --secondary: oklch(0.15 0.01 0);
-  --secondary-foreground: oklch(0.82 0.01 0);
-  --muted: oklch(0.20 0.01 0);
-  --muted-foreground: oklch(0.65 0.01 0);
+  --muted: #2A2A2A;
+  --muted-foreground: #A0A0A0;
   
-  /* Accent: Blue-gray discreto */
-  --accent: oklch(0.52 0.15 260);
-  --accent-foreground: oklch(1 0 0);
+  --accent: #BFA66A;
+  --accent-foreground: #0B0B0B;
   
-  /* Destructive: Vermelho suave */
-  --destructive: oklch(0.63 0.22 25);
-  --destructive-foreground: oklch(1 0 0);
+  --border: #BFA66A;     /* Linhas douradas para divisores */
+  --input: #2A2A2A;
+  --ring: #BFA66A;
   
-  /* Borders e inputs: Cinza muito escuro */
-  --border: oklch(0.15 0.01 0);
-  --input: oklch(0.15 0.01 0);
-  --ring: oklch(0.52 0.15 260);
+  --card: #0B0B0B;
+  --card-foreground: #F2F2ED;
   
-  /* Sidebar: Mesmo que background */
-  --sidebar: oklch(0.10 0.01 0);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.52 0.15 260);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.15 0.01 0);
-  --sidebar-ring: oklch(0.52 0.15 260);
+  --radius: 0px;         /* Cantos retos */
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border/30 outline-ring/50;
   }
   
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
-    @apply font-bold;
+    font-family: 'Montserrat', sans-serif;
+    @apply font-extrabold uppercase tracking-[0.15em];
+    line-height: 1.1;
   }
   
   h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
   }
   
   h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl;
   }
   
   h3 {
-    @apply text-xl sm:text-2xl md:text-3xl leading-snug;
+    @apply text-xl sm:text-2xl;
   }
   
   p {
-    @apply text-sm sm:text-base leading-relaxed;
-  }
-  
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
+    @apply text-base leading-relaxed;
   }
 }
 
 @layer components {
-  /* Custom container with Bauhaus Swiss spacing */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 3rem;
-      padding-right: 3rem;
-      max-width: 1280px;
+      max-width: 1200px;
     }
   }
 
-  /* Divider line - minimal aesthetic */
-  .divider {
-    @apply h-px bg-border;
+  /* Grid Rígido e Simetria */
+  .section-spacing {
+    @apply py-20 md:py-32 border-b border-primary/20;
   }
 
-  /* Link with underline animation */
-  .link-underline {
-    @apply relative inline-block;
-    background: linear-gradient(to right, currentColor 0%, currentColor 100%) no-repeat;
-    background-size: 0 2px;
-    background-position: 0 100%;
-    transition: background-size 0.3s ease;
+  /* Divisor Art Déco */
+  .deco-divider {
+    @apply h-px bg-primary w-full my-8 opacity-50;
   }
 
-  .link-underline:hover {
-    background-size: 100% 2px;
+  /* Moldura Geométrica */
+  .deco-frame {
+    @apply border border-primary/40 p-8 relative;
   }
 
-  /* Smooth scroll behavior */
+  .deco-frame::before {
+    content: '';
+    @apply absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary;
+  }
+
+  .deco-frame::after {
+    content: '';
+    @apply absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary;
+  }
+
+  /* Cards Rígidos */
+  .card-artdeco {
+    @apply bg-secondary/30 border border-primary/20 p-8 transition-all duration-500;
+  }
+  
+  .card-artdeco:hover {
+    @apply border-primary/60 bg-secondary/50;
+  }
+
+  /* Botão Art Déco */
+  .btn-artdeco {
+    @apply border border-primary text-primary uppercase tracking-widest px-8 py-3 hover:bg-primary hover:text-background transition-all duration-300 font-bold text-sm;
+  }
+
+  /* Animações Sutis */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   html {
     scroll-behavior: smooth;
-  }
-
-  /* Section spacing - Bauhaus Swiss generous vertical spacing */
-  .section-spacing {
-    @apply py-12 sm:py-16 md:py-24 lg:py-32 xl:py-40;
-  }
-
-  /* Card with subtle border */
-  .card-minimal {
-    @apply bg-card text-card-foreground border border-border rounded-lg p-6 transition-all duration-300;
-  }
-  
-  .card-minimal:hover {
-    @apply shadow-lg transform scale-[1.02];
-  }
-  
-  /* Smooth image transitions */
-  img {
-    @apply transition-transform duration-500;
-  }
-  
-  img:hover {
-    @apply scale-[1.02];
-  }
-  
-  /* Enhanced button animations */
-  button, a[href] {
-    @apply transition-all duration-300;
   }
 }
