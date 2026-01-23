@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle, X, Instagram } from "lucide-react";
+import { Mail, MessageCircle, X, Instagram, Globe } from "lucide-react";
 
 /**
  * Core & Patch - Institutional Website
@@ -18,6 +18,7 @@ export default function Home() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá%20Core%20%26%20Patch%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto.`;
   const emailAddress = "corepatch.dev@gmail.com";
   const instagramUrl = "https://www.instagram.com/corepatch.dev?igsh=MXh6eTNkeWJzbXNnYQ==";
+  const englishUrl = "https://core-patch-website-en.vercel.app";
 
   const navLinks = [
     { href: "#sobre", label: "Sobre" },
@@ -38,7 +39,7 @@ export default function Home() {
           </a>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-10">
+          <div className="hidden md:flex gap-10 items-center">
             {navLinks.map((link) => (
               <a 
                 key={link.href}
@@ -48,6 +49,15 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
+            {/* Language Switcher */}
+            <a 
+              href={englishUrl}
+              className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-primary transition-colors border border-primary/30 px-4 py-2"
+              title="Switch to English"
+            >
+              <Globe className="w-4 h-4" />
+              EN
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -82,6 +92,14 @@ export default function Home() {
                   {link.label}
                 </a>
               ))}
+              <a 
+                href={englishUrl}
+                className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-primary transition-colors py-3 border border-primary/30 px-4 justify-center"
+                title="Switch to English"
+              >
+                <Globe className="w-4 h-4" />
+                English
+              </a>
             </div>
           </div>
         )}
@@ -196,6 +214,28 @@ export default function Home() {
                 </p>
                 <span className="text-xs font-bold tracking-widest uppercase text-primary">Ver Projeto —</span>
               </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Language Banner */}
+      <section className="py-16 bg-secondary/20 border-y border-primary/30">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-4 mb-6">
+              <Globe className="w-6 h-6 text-primary" />
+              <h3 className="text-2xl">We also build websites in English</h3>
+            </div>
+            <p className="text-muted-foreground mb-8">
+              Get in touch with us
+            </p>
+            <a 
+              href={englishUrl}
+              className="btn-artdeco inline-flex items-center gap-2"
+            >
+              <Globe className="w-4 h-4" />
+              English Version
             </a>
           </div>
         </div>
