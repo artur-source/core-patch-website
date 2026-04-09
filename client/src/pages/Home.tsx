@@ -233,7 +233,7 @@ export default function Home() {
           <h2 className="mb-20 text-center">Projetos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <a
-              href="https://artur-source.github.io/RegiFlex/"
+              href="https://regiflex-app.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="group block"
@@ -242,108 +242,65 @@ export default function Home() {
                 <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 <h3 className="mb-4 group-hover:text-primary transition-colors text-2xl">RegiFlex</h3>
                 <p className="text-muted-foreground text-sm mb-8">
-                  Plataforma de gestão de registros. Interface técnica, funcional e de alta precisão.
+                  Plataforma de gestão de registros. Interface técnica, funcional e orientada a processos.
                 </p>
-                <span className="text-xs font-bold tracking-widest uppercase text-primary flex items-center gap-2">
-                  Ver Projeto <ChevronRight className="w-3 h-3" />
-                </span>
-              </div>
-            </a>
-            <a
-              href="https://jvstore.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div className="card-artdeco relative overflow-hidden p-12 border border-primary/20 bg-background hover:border-primary/50 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                <h3 className="mb-4 group-hover:text-primary transition-colors text-2xl">JVSTORE</h3>
-                <p className="text-muted-foreground text-sm mb-8">
-                  Catálogo digital organizado. Experiência de navegação clara, segura e estruturada.
-                </p>
-                <span className="text-xs font-bold tracking-widest uppercase text-primary flex items-center gap-2">
-                  Ver Projeto <ChevronRight className="w-3 h-3" />
-                </span>
+                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
+                  Ver projeto <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Language Banner */}
-      <section className="py-16 bg-secondary/20 border-y border-primary/30">
+      {/* Footer / Contato */}
+      <footer className="section-spacing border-t border-primary/30" id="contato">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-4 mb-6">
-              <Globe className="w-6 h-6 text-primary" />
-              <h3 className="text-2xl">We also build websites in English</h3>
-            </div>
-            <p className="text-muted-foreground mb-8">
-              Get in touch with us
-            </p>
-            <a 
-              href={englishUrl}
-              className="btn-artdeco inline-flex items-center gap-2 px-6 py-3 border border-primary/30 hover:bg-primary/10 transition-colors text-xs uppercase tracking-widest"
-            >
-              <Globe className="w-4 h-4" />
-              English Version
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Contato */}
-      <section className="section-spacing" id="contato">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="mb-12">Escritório</h2>
-            <div className="border border-primary/30 p-12 bg-secondary/5">
-              <p className="text-muted-foreground mb-12 uppercase tracking-widest text-sm">
-                Inicie uma consulta técnica
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+              <h2 className="mb-8">Vamos construir algo?</h2>
+              <p className="text-muted-foreground text-lg mb-12 max-w-md">
+                Seja para automatizar sua operação ou desenvolver um novo sistema, estamos prontos para o desafio.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco flex items-center justify-center gap-2 px-6 py-3 border border-primary/30 hover:bg-primary/10 transition-colors text-xs uppercase tracking-widest">
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp
+              
+              <div className="space-y-6">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-primary transition-colors group">
+                  <div className="w-12 h-12 border border-primary/30 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm uppercase tracking-widest">WhatsApp Business</span>
                 </a>
-                <a href={`mailto:${emailAddress}`} className="btn-artdeco flex items-center justify-center gap-2 px-6 py-3 border border-primary/30 hover:bg-primary/10 transition-colors text-xs uppercase tracking-widest">
-                  <Mail className="w-4 h-4" />
-                  Email
+                <a href={`mailto:${emailAddress}`} className="flex items-center gap-4 hover:text-primary transition-colors group">
+                  <div className="w-12 h-12 border border-primary/30 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm uppercase tracking-widest">{emailAddress}</span>
                 </a>
-                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco flex items-center justify-center gap-2 px-6 py-3 border border-primary/30 hover:bg-primary/10 transition-colors text-xs uppercase tracking-widest">
-                  <Instagram className="w-4 h-4" />
-                  Instagram
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-primary transition-colors group">
+                  <div className="w-12 h-12 border border-primary/30 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm uppercase tracking-widest">@corepatch.dev</span>
                 </a>
               </div>
-              <div className="mt-16 pt-8 border-t border-primary/10 text-xs tracking-[0.2em] text-muted-foreground space-y-4 flex flex-col items-center">
-                <p className="w-full text-center">SÃO PAULO, BRASIL</p>
-                <p className="w-full text-center break-all">COREPATCH.DEV@GMAIL.COM</p>
+            </div>
+            
+            <div className="relative p-1 border border-primary/20">
+              <div className="bg-secondary/10 p-12 h-full flex flex-col justify-center text-center">
+                <span className="text-xs uppercase tracking-[0.3em] text-primary mb-6 block">Ready to start?</span>
+                <h3 className="text-3xl mb-10">Agende um diagnóstico gratuito da sua operação</h3>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco w-full py-5 text-sm uppercase tracking-widest font-bold">
+                  Iniciar conversa
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 border-t border-primary/20">
-        <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-xs tracking-[0.3em] font-bold text-primary">
-              CORE & PATCH
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground text-center md:text-left">
-              © 2026 Core & Patch. Estrutura constrói. Sustentação mantém.
-            </div>
+          
+          <div className="mt-40 pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
+            <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">© {new Date().getFullYear()} CORE & PATCH. TODOS OS DIREITOS RESERVADOS.</span>
             <div className="flex gap-8">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
-                WhatsApp
-              </a>
-              <a href={`mailto:${emailAddress}`} className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
-                Email
-              </a>
-              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest hover:text-primary transition-colors">
-                Instagram
-              </a>
+              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">SUZANO, SP</span>
+              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">EST. 2024</span>
             </div>
           </div>
         </div>
