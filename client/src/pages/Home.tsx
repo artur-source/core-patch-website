@@ -304,7 +304,7 @@ export default function Home() {
             
             <div className="relative p-1 border border-primary/20">
               <div className="bg-secondary/10 p-12 h-full flex flex-col justify-center text-center">
-                <span className="text-xs uppercase tracking-[0.3em] text-primary mb-6 block">Ready to start?</span>
+                <span className="text-xs uppercase tracking-[0.3em] text-primary mb-6 block">PRONTO PARA COMEÇAR?</span>
                 <h3 className="text-3xl mb-10">Agende um diagnóstico gratuito da sua operação</h3>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco w-full py-5 text-sm uppercase tracking-widest font-bold">
                   Iniciar conversa
@@ -313,8 +313,11 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="mt-40 pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
-            <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">© {new Date().getFullYear()} CORE & PATCH. TODOS OS DIREITOS RESERVADOS.</span>
+          <div className="mt-32 pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <span className="text-xl font-extrabold tracking-[0.3em] text-primary mb-2">CORE & PATCH</span>
+              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">© {new Date().getFullYear()} TODOS OS DIREITOS RESERVADOS.</span>
+            </div>
             <div className="flex gap-8">
               <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">SUZANO, SP</span>
               <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">EST. 2024</span>
