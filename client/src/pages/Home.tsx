@@ -249,6 +249,23 @@ export default function Home() {
                 </div>
               </div>
             </a>
+            <a
+              href="https://jvstore.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div className="card-artdeco relative overflow-hidden p-12 border border-primary/20 bg-background hover:border-primary/50 transition-all duration-500">
+                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <h3 className="mb-4 group-hover:text-primary transition-colors text-2xl">JVSTORE</h3>
+                <p className="text-muted-foreground text-sm mb-8">
+                  E-commerce especializado em moda masculina. Foco em experiência de compra, performance e design exclusivo.
+                </p>
+                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
+                  Ver projeto <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
