@@ -32,33 +32,33 @@ export default function Home() {
   const services = [
     {
       id: "01",
-      title: "Automação de Processos com IA",
-      description: "Automatizamos tarefas operacionais repetitivas utilizando inteligência artificial e integrações entre sistemas.",
-      benefits: ["Atendimento automatizado", "Qualificação de leads", "Fluxos operacionais inteligentes"]
+      title: "Agentes de IA e LLMs Personalizados",
+      description: "Implementamos agentes autônomos e modelos de linguagem (LLMs) treinados para executar fluxos complexos, análise de documentos e suporte técnico especializado.",
+      benefits: ["Raciocínio lógico automatizado", "Extração de dados não estruturados", "Agentes de suporte multimodais"]
     },
     {
       id: "02",
-      title: "Relatórios e Dashboards Automáticos",
-      description: "Transformamos dados em relatórios automáticos e dashboards estratégicos para tomada de decisão.",
-      benefits: ["Relatórios automáticos", "Visualização de métricas", "Redução de trabalho manual"]
+      title: "Automação de Workflows Complexos",
+      description: "Orquestramos integrações profundas entre APIs e sistemas legados para eliminar tarefas manuais e garantir a integridade dos dados em tempo real.",
+      benefits: ["Integração ERP, CRM e Webhooks", "Automação de back-office", "Fluxos de aprovação inteligentes"]
     },
     {
       id: "03",
-      title: "Integração entre Sistemas",
-      description: "Conectamos plataformas que normalmente não se comunicam, eliminando retrabalho e inconsistência de dados.",
-      benefits: ["Integração ERP, CRM e financeiro", "Sincronização de dados", "Processos unificados"]
+      title: "Desenvolvimento de MVPs e SaaS",
+      description: "Construímos aplicações web escaláveis e sistemas internos robustos com foco em performance, segurança e lançamento rápido no mercado.",
+      benefits: ["Arquitetura escalável", "Sistemas de gestão (ERP/CRM)", "Plataformas SaaS completas"]
     },
     {
       id: "04",
-      title: "Desenvolvimento de Sistemas e MVPs",
-      description: "Criamos aplicações web, sistemas internos e MVPs para empresas que precisam lançar soluções digitais rapidamente.",
-      benefits: ["Landing pages", "Sistemas internos", "MVPs para validação de produtos"]
+      title: "Data Intelligence e Dashboards",
+      description: "Transformamos grandes volumes de dados brutos em dashboards estratégicos e relatórios automáticos que direcionam a tomada de decisão.",
+      benefits: ["Visualização de métricas em tempo real", "Análise preditiva", "Relatórios executivos automáticos"]
     },
     {
       id: "05",
-      title: "Soluções SaaS para Nichos",
-      description: "Desenvolvemos softwares especializados para setores específicos, resolvendo problemas operacionais de forma simples.",
-      benefits: ["Ferramentas para setores específicos", "Automação de documentos", "Plataformas de gestão"]
+      title: "Consultoria em Arquitetura Digital",
+      description: "Desenhamos a infraestrutura tecnológica necessária para sustentar o crescimento e a eficiência operacional da sua empresa.",
+      benefits: ["Modernização de sistemas", "Segurança da informação", "Escalabilidade de infraestrutura"]
     }
   ];
 
