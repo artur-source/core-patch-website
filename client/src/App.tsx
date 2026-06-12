@@ -18,14 +18,10 @@ function Router() {
   );
 }
 
-/**
- * Core & Patch - Dark theme (Bauhaus Swiss)
- * Design: Preto profundo, branco, azul-cinzento
- */
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />

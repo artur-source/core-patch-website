@@ -1,344 +1,467 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle, X, Instagram, Globe, ChevronRight } from "lucide-react";
-
-/**
- * Core & Patch - Institutional Website
- * Design: Art Déco Reinterpretado
- * Color: Deep Black (#0B0B0B), Off-white (#F2F2ED), Matte Gold (#BFA66A)
- * Typography: Montserrat (titles), Inter (body)
- */
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  ChevronRight,
+  ClipboardCheck,
+  Code2,
+  Globe,
+  Instagram,
+  Layers3,
+  Mail,
+  Menu,
+  MessageCircle,
+  MonitorSmartphone,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  X,
+  Zap,
+} from "lucide-react";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const whatsappNumber = "5511940572858";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá%20Core%20%26%20Patch%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto.`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Ol%C3%A1%20Core%20%26%20Patch%2C%20quero%20descrever%20um%20problema%20do%20meu%20neg%C3%B3cio.`;
   const emailAddress = "corepatch.dev@gmail.com";
   const instagramUrl = "https://www.instagram.com/corepatch.dev?igsh=MXh6eTNkeWJzbXNnYQ==";
   const englishUrl = "https://core-patch-website-en.vercel.app";
 
   const navLinks = [
     { href: "#solucoes", label: "Soluções" },
-    { href: "#posicionamento", label: "Sobre" },
+    { href: "#processo", label: "Processo" },
     { href: "#projetos", label: "Projetos" },
-    { href: "#contato", label: "Contato" },
+    { href: "#faq", label: "FAQ" },
+  ];
+
+  const pains = [
+    "Você ainda controla pedidos, agenda ou estoque em planilhas soltas.",
+    "Seu cliente precisa chamar no WhatsApp para tudo, até para tarefas simples.",
+    "A equipe digita o mesmo dado em mais de um lugar e perde tempo com retrabalho.",
+    "Seu site existe, mas não ajuda a vender, agendar ou organizar a operação.",
+  ];
+
+  const solutions = [
+    {
+      icon: MonitorSmartphone,
+      title: "Soluções Web",
+      description: "Sites institucionais, landing pages e portais para empresas que precisam aparecer com clareza e converter melhor.",
+      items: ["Site profissional", "Landing pages de campanha", "Portais com área do cliente"],
+    },
+    {
+      icon: BarChart3,
+      title: "Sistemas e Gestão",
+      description: "Sistemas internos, dashboards e fluxos de gestão para trocar improviso por operação organizada.",
+      items: ["Agendamento e cadastro", "Painéis de gestão", "Relatórios operacionais"],
+    },
+    {
+      icon: Zap,
+      title: "Atendimento e Automação",
+      description: "Automações, integrações e atendimento digital para reduzir tarefas repetitivas sem complicar sua rotina.",
+      items: ["WhatsApp com fluxo guiado", "Cardápio digital com QR Code", "Integrações com ferramentas"],
+    },
+  ];
+
+  const process = [
+    {
+      step: "01",
+      title: "Diagnóstico",
+      description: "Você descreve o problema. Nós entendemos o fluxo, as pessoas envolvidas e o que precisa melhorar.",
+    },
+    {
+      step: "02",
+      title: "Proposta",
+      description: "Transformamos o diagnóstico em escopo, prazo e investimento claros antes de qualquer desenvolvimento.",
+    },
+    {
+      step: "03",
+      title: "Desenvolvimento",
+      description: "Construímos em ciclos curtos, validando telas, regras e integrações com você durante o caminho.",
+    },
+    {
+      step: "04",
+      title: "Entrega e suporte",
+      description: "Publicamos, treinamos sua equipe e acompanhamos os ajustes necessários para a solução funcionar no dia a dia.",
+    },
+  ];
+
+  const projects = [
+    {
+      name: "RegiFlex",
+      label: "Produto próprio",
+      href: "https://regiflex-app.vercel.app/",
+      description: "Sistema para clínicas com fluxo de pacientes, check-in por QR Code, controle por perfis e estrutura multicliente.",
+      result: "Prova real de capacidade em SaaS, operação e produto em produção.",
+    },
+    {
+      name: "JVSTORE",
+      label: "E-commerce",
+      href: "https://jvstore.com.br/",
+      description: "Loja online de moda masculina com experiência de compra direta, vitrine clara e foco em performance.",
+      result: "Presença digital com jornada de compra pronta para vender.",
+    },
+    {
+      name: "Prompt.Code",
+      label: "Ferramenta interna",
+      href: "https://prompt-code.vercel.app/",
+      description: "Aplicação criada pela Core & Patch para estruturar prompts e acelerar fluxos de criação com IA.",
+      result: "Uso de IA como ferramenta prática, não como promessa vaga.",
+    },
+  ];
+
+  const differentiators = [
+    {
+      icon: ClipboardCheck,
+      title: "Processo explicado em português claro",
+      description: "Você não precisa chegar sabendo o nome técnico da solução. Basta explicar o problema.",
+    },
+    {
+      icon: Rocket,
+      title: "Entrega enxuta e objetiva",
+      description: "Projetos com escopo bem definido, validações frequentes e foco no que resolve a operação.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Produto próprio em produção",
+      description: "O RegiFlex mostra que desenvolvemos, publicamos e mantemos sistemas reais.",
+    },
+    {
+      icon: Layers3,
+      title: "Do site ao sistema completo",
+      description: "Começamos simples quando faz sentido e evoluímos para integrações, painéis e automações.",
+    },
+  ];
+
+  const technologies = ["React", "Next.js", "Node.js", "Supabase", "Vercel", "APIs", "PostgreSQL", "Tailwind"];
+
+  const faqs = [
+    {
+      question: "Vocês atendem empresas pequenas?",
+      answer: "Sim. A Core & Patch foi reposicionada para atender pequenos e médios negócios que precisam de tecnologia sem excesso de jargão.",
+    },
+    {
+      question: "Preciso saber exatamente qual sistema quero?",
+      answer: "Não. O primeiro passo é descrever o problema. A partir disso, desenhamos a solução mais simples e útil para o seu cenário.",
+    },
+    {
+      question: "Quanto tempo leva um projeto?",
+      answer: "Depende do escopo. Uma landing page pode ser rápida; um sistema interno exige diagnóstico, protótipo e validação. Você recebe prazo antes do início.",
+    },
+    {
+      question: "Vocês dão suporte depois da entrega?",
+      answer: "Sim. A entrega inclui orientação inicial, ajustes combinados e possibilidade de suporte contínuo conforme a necessidade do projeto.",
+    },
+    {
+      question: "Vocês trabalham com IA?",
+      answer: "Sim, quando ela resolve um problema concreto. IA é uma capacidade técnica da Core & Patch, não uma promessa genérica.",
+    },
   ];
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
-  const services = [
-    {
-      id: "01",
-      title: "Agentes de IA e LLMs Personalizados",
-      description: "Implementamos agentes autônomos e modelos de linguagem (LLMs) treinados para executar fluxos complexos, análise de documentos e suporte técnico especializado.",
-      benefits: ["Raciocínio lógico automatizado", "Extração de dados não estruturados", "Agentes de suporte multimodais"]
-    },
-    {
-      id: "02",
-      title: "Automação de Workflows Complexos",
-      description: "Orquestramos integrações profundas entre APIs e sistemas legados para eliminar tarefas manuais e garantir a integridade dos dados em tempo real.",
-      benefits: ["Integração ERP, CRM e Webhooks", "Automação de back-office", "Fluxos de aprovação inteligentes"]
-    },
-    {
-      id: "03",
-      title: "Desenvolvimento de MVPs e SaaS",
-      description: "Construímos aplicações web escaláveis e sistemas internos robustos com foco em performance, segurança e lançamento rápido no mercado.",
-      benefits: ["Arquitetura escalável", "Sistemas de gestão (ERP/CRM)", "Plataformas SaaS completas"]
-    },
-    {
-      id: "04",
-      title: "Data Intelligence e Dashboards",
-      description: "Transformamos grandes volumes de dados brutos em dashboards estratégicos e relatórios automáticos que direcionam a tomada de decisão.",
-      benefits: ["Visualização de métricas em tempo real", "Análise preditiva", "Relatórios executivos automáticos"]
-    },
-    {
-      id: "05",
-      title: "Consultoria em Arquitetura Digital",
-      description: "Desenhamos a infraestrutura tecnológica necessária para sustentar o crescimento e a eficiência operacional da sua empresa.",
-      benefits: ["Modernização de sistemas", "Segurança da informação", "Escalabilidade de infraestrutura"]
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-primary/30">
-        <div className="container flex items-center justify-between py-6">
-          <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity" onClick={closeMobileMenu}>
-            <span className="text-xl font-extrabold tracking-[0.3em] text-primary">CORE & PATCH</span>
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+      <nav className="sticky top-0 z-50 border-b border-border/70 bg-background/88 backdrop-blur-xl">
+        <div className="container flex items-center justify-between py-4">
+          <a href="#home" className="flex items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring" onClick={closeMobileMenu}>
+            <span className="flex h-10 w-10 items-center justify-center rounded-md bg-primary text-sm font-black text-primary-foreground">C&P</span>
+            <span className="text-sm font-extrabold tracking-[0.18em] text-foreground">CORE & PATCH</span>
           </a>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-10 items-center">
+
+          <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <a 
-                key={link.href}
-                href={link.href} 
-                className="text-xs uppercase tracking-widest hover:text-primary transition-colors"
-              >
+              <a key={link.href} href={link.href} className="nav-link">
                 {link.label}
               </a>
             ))}
-            {/* Language Switcher */}
-            <a 
-              href={englishUrl}
-              className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-primary transition-colors border border-primary/30 px-4 py-2"
-              title="Switch to English"
-            >
-              <Globe className="w-4 h-4" />
+            <a href={englishUrl} className="nav-link flex items-center gap-2" title="Switch to English">
+              <Globe className="h-4 w-4" />
               EN
             </a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Fale com a gente
+            </a>
           </div>
-          
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button 
-              className="text-primary hover:opacity-80 transition-opacity"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8h16M4 16h16" />
-                </svg>
-              )}
-            </button>
-          </div>
+
+          <button
+            className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border border-border bg-card text-foreground transition-colors hover:border-primary hover:text-primary md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label="Abrir menu"
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-primary/30 bg-background">
-            <div className="container py-6 flex flex-col gap-4">
+          <div className="border-t border-border bg-background md:hidden">
+            <div className="container flex flex-col gap-2 py-4">
               {navLinks.map((link) => (
-                <a 
-                  key={link.href}
-                  href={link.href}
-                  className="text-xs uppercase tracking-widest hover:text-primary transition-colors py-3 border-b border-primary/10 last:border-b-0"
-                  onClick={closeMobileMenu}
-                >
+                <a key={link.href} href={link.href} className="nav-link py-3" onClick={closeMobileMenu}>
                   {link.label}
                 </a>
               ))}
-              <a 
-                href={englishUrl}
-                className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-primary transition-colors py-3 border border-primary/30 px-4 justify-center"
-                title="Switch to English"
-              >
-                <Globe className="w-4 h-4" />
+              <a href={englishUrl} className="nav-link flex items-center gap-2 py-3" onClick={closeMobileMenu}>
+                <Globe className="h-4 w-4" />
                 English
+              </a>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary mt-2 justify-center" onClick={closeMobileMenu}>
+                Fale com a gente
               </a>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center border-b border-primary/40 overflow-hidden" id="home">
-        {/* Decorative background lines */}
-        <div className="absolute inset-0 flex justify-between px-10 opacity-5 pointer-events-none">
-          <div className="w-px h-full bg-primary"></div>
-          <div className="w-px h-full bg-primary"></div>
-          <div className="w-px h-full bg-primary"></div>
-          <div className="w-px h-full bg-primary"></div>
-        </div>
-
-        <div className="container relative z-10 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="w-12 h-px bg-primary mx-auto mb-8"></div>
-            <h1 className="mb-6 fade-in-up text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
-              Automação, Inteligência e Sistemas para Empresas Modernas
-            </h1>
-            <p className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Construímos soluções digitais que reduzem custos operacionais, automatizam processos e escalam negócios.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco px-8 py-4 text-sm uppercase tracking-widest font-bold">
-                Solicitar diagnóstico
-              </a>
-              <a href="#solucoes" className="btn-artdeco-outline px-8 py-4 text-sm uppercase tracking-widest font-bold border border-primary/30 hover:bg-primary/10 transition-colors">
-                Conhecer soluções
-              </a>
+      <main>
+        <section id="home" className="relative overflow-hidden border-b border-border">
+          <div className="absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,0.18),transparent_34%),radial-gradient(circle_at_80%_0%,rgba(249,115,22,0.15),transparent_30%)]" />
+          <div className="container grid min-h-[calc(100vh-73px)] items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+            <div className="max-w-3xl">
+              <span className="eyebrow">Software house para pequenas empresas</span>
+              <h1 className="mt-6 max-w-4xl text-balance">
+                Desenvolvemos soluções digitais para empresas que querem crescer.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground md:text-xl">
+                Criamos sites, sistemas, automações e plataformas digitais, do zero até a entrega, para negócios que querem funcionar melhor sem depender de papel, planilha e improviso.
+              </p>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  Descreve o seu problema
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a href="#projetos" className="btn-secondary">
+                  Ver projetos entregues
+                </a>
+              </div>
+              <div className="mt-10 grid gap-4 text-sm text-muted-foreground sm:grid-cols-3">
+                <div><strong className="block text-2xl text-foreground">2024</strong> Empresa fundada</div>
+                <div><strong className="block text-2xl text-foreground">3</strong> Produtos e projetos ativos</div>
+                <div><strong className="block text-2xl text-foreground">24h</strong> Retorno inicial</div>
+              </div>
             </div>
-            <div className="w-full h-px bg-primary mt-16 opacity-30"></div>
-          </div>
-        </div>
-      </section>
 
-      {/* Soluções */}
-      <section className="section-spacing bg-secondary/5" id="solucoes">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-20">
-            <h2 className="mb-6">Soluções</h2>
-            <div className="w-12 h-px bg-primary mx-auto"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-primary/20">
-            {services.map((service, index) => (
-              <div 
-                key={service.id} 
-                className={`p-10 border-primary/20 hover:bg-secondary/20 transition-colors flex flex-col h-full
-                  ${index % 3 !== 2 ? 'lg:border-r' : ''} 
-                  ${index < 3 ? 'lg:border-b' : ''}
-                  ${index % 2 !== 1 ? 'md:border-r lg:md:border-r-0' : ''}
-                  ${index < 4 ? 'md:border-b lg:md:border-b-0' : ''}
-                  border-b md:border-b lg:border-b-0
-                `}
-              >
-                <span className="text-primary text-xs font-bold tracking-widest mb-6 block">{service.id}</span>
-                <h3 className="mb-6 text-xl">{service.title}</h3>
-                <p className="text-muted-foreground text-sm mb-8 flex-grow">
-                  {service.description}
-                </p>
-                <ul className="space-y-3 mt-auto">
-                  {service.benefits.map((benefit, bIndex) => (
-                    <li key={bIndex} className="text-[10px] uppercase tracking-widest text-primary flex items-center gap-2">
-                      <div className="w-1 h-1 bg-primary rounded-full"></div>
-                      {benefit}
-                    </li>
+            <div className="glass-panel p-5 md:p-7">
+              <div className="rounded-md border border-border bg-card p-5 shadow-sm">
+                <div className="mb-6 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Diagnóstico</p>
+                    <h2 className="mt-2 text-2xl">Do problema ao software</h2>
+                  </div>
+                  <Code2 className="h-8 w-8 text-primary" />
+                </div>
+                <div className="space-y-3">
+                  {["Agenda manual", "Atendimento repetitivo", "Dados espalhados", "Site sem conversão"].map((item) => (
+                    <div key={item} className="flex items-center justify-between rounded-md border border-border bg-background px-4 py-3">
+                      <span className="text-sm font-medium">{item}</span>
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                    </div>
                   ))}
-                </ul>
+                </div>
+                <div className="mt-5 rounded-md bg-primary p-5 text-primary-foreground">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em]">Resultado</p>
+                  <p className="mt-2 text-2xl font-extrabold">Sistema simples, útil e pronto para sua operação.</p>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Posicionamento Estratégico */}
-      <section className="section-spacing" id="posicionamento">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="mb-12">Tecnologia aplicada a resultados</h2>
-            <div className="deco-frame p-12 border border-primary/30 relative">
-              <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
-              <div className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-primary"></div>
-              <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
-              
-              <p className="text-xl md:text-2xl leading-relaxed text-foreground/90 font-light italic">
-                "Na Core & Patch, tecnologia não é apenas código. É estrutura para crescimento, eficiência operacional e escala."
-              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Projetos */}
-      <section className="section-spacing bg-secondary/5" id="projetos">
-        <div className="container">
-          <h2 className="mb-20 text-center">Projetos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <a
-              href="https://regiflex-app.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div className="card-artdeco relative overflow-hidden p-12 border border-primary/20 bg-background hover:border-primary/50 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                <h3 className="mb-4 group-hover:text-primary transition-colors text-2xl">RegiFlex</h3>
-                <p className="text-muted-foreground text-sm mb-8">
-                  Plataforma de gestão de registros. Interface técnica, funcional e orientada a processos.
-                </p>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-                  Ver projeto <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        <section className="section-spacing" aria-labelledby="problemas-title">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">O ponto de partida</span>
+              <h2 id="problemas-title">Seu negócio não precisa de jargão. Precisa de solução.</h2>
+              <p>Antes de falar em tecnologia, a gente entende a rotina que está travando sua empresa.</p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {pains.map((pain) => (
+                <div key={pain} className="flex gap-4 rounded-md border border-border bg-card p-6 shadow-sm">
+                  <Sparkles className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                  <p className="text-muted-foreground">{pain}</p>
                 </div>
-              </div>
-            </a>
-            <a
-              href="https://jvstore.com.br/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div className="card-artdeco relative overflow-hidden p-12 border border-primary/20 bg-background hover:border-primary/50 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                <h3 className="mb-4 group-hover:text-primary transition-colors text-2xl">JVSTORE</h3>
-                <p className="text-muted-foreground text-sm mb-8">
-                  E-commerce especializado em moda masculina. Foco em experiência de compra, performance e design exclusivo.
-                </p>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-                  Ver projeto <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </a>
-            <a
-              href="https://prompt-code.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div className="card-artdeco relative overflow-hidden p-12 border border-primary/20 bg-background hover:border-primary/50 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                <h3 className="mb-4 group-hover:text-primary transition-colors text-2xl">Prompt.Code</h3>
-                <p className="text-muted-foreground text-sm mb-8">
-                  Ferramenta criada pela Core & Patch para gerar prompts melhores com IA. Escolha um template, preencha alguns campos e gere prompts estruturados automaticamente.
-                </p>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-                  Acessar Prompt.Code <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </a>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer / Contato */}
-      <footer className="section-spacing border-t border-primary/30" id="contato">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <section className="section-spacing bg-muted/45" id="solucoes">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">Soluções</span>
+              <h2>O que desenvolvemos para o seu negócio</h2>
+              <p>Organizamos a oferta do jeito que o cliente compra: presença digital, gestão e operação.</p>
+            </div>
+            <div className="grid gap-5 lg:grid-cols-3">
+              {solutions.map((solution) => {
+                const Icon = solution.icon;
+                return (
+                  <article key={solution.title} className="group rounded-md border border-border bg-card p-7 shadow-sm transition-colors duration-200 hover:border-primary">
+                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3>{solution.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-muted-foreground">{solution.description}</p>
+                    <ul className="mt-6 space-y-3">
+                      {solution.items.map((item) => (
+                        <li key={item} className="flex items-center gap-3 text-sm font-medium">
+                          <CheckCircle2 className="h-4 w-4 text-primary" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing" id="processo">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">Como trabalhamos</span>
+              <h2>Um processo claro para você não comprar tecnologia no escuro.</h2>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-4">
+              {process.map((item) => (
+                <article key={item.step} className="rounded-md border border-border bg-card p-6 shadow-sm">
+                  <span className="text-sm font-black text-primary">{item.step}</span>
+                  <h3 className="mt-4 text-xl">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing bg-foreground text-background" id="projetos">
+          <div className="container">
+            <div className="section-heading text-background">
+              <span className="eyebrow text-accent">Projetos</span>
+              <h2>Produtos e entregas que mostram capacidade real.</h2>
+              <p className="text-background/70">O RegiFlex é o case principal: produto próprio, sistema real e prova de que a Core & Patch entrega além de site estático.</p>
+            </div>
+            <div className="grid gap-5 lg:grid-cols-3">
+              {projects.map((project) => (
+                <a key={project.name} href={project.href} target="_blank" rel="noopener noreferrer" className="group block cursor-pointer rounded-md border border-background/15 bg-background/8 p-7 transition-colors duration-200 hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{project.label}</span>
+                  <h3 className="mt-4 text-2xl text-background">{project.name}</h3>
+                  <p className="mt-4 text-sm leading-7 text-background/70">{project.description}</p>
+                  <p className="mt-5 rounded-md bg-background/10 p-4 text-sm font-medium text-background">{project.result}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-accent">
+                    Ver projeto
+                    <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing">
+          <div className="container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
-              <h2 className="mb-8">Vamos construir algo?</h2>
-              <p className="text-muted-foreground text-lg mb-12 max-w-md">
-                Seja para automatizar sua operação ou desenvolver um novo sistema, estamos prontos para o desafio.
+              <span className="eyebrow">Tecnologias</span>
+              <h2 className="mt-5">Stack moderno, explicado sem complicar.</h2>
+              <p className="mt-5 text-muted-foreground">
+                Usamos tecnologias que facilitam manutenção, performance e publicação rápida. O cliente vê resultado; a base técnica fica sólida.
               </p>
-              
-              <div className="space-y-6">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-primary transition-colors group">
-                  <div className="w-12 h-12 border border-primary/30 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <span className="text-sm uppercase tracking-widest">WhatsApp Business</span>
-                </a>
-                <a href={`mailto:${emailAddress}`} className="flex items-center gap-4 hover:text-primary transition-colors group">
-                  <div className="w-12 h-12 border border-primary/30 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <span className="text-sm uppercase tracking-widest">{emailAddress}</span>
-                </a>
-                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-primary transition-colors group">
-                  <div className="w-12 h-12 border border-primary/30 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <Instagram className="w-5 h-5" />
-                  </div>
-                  <span className="text-sm uppercase tracking-widest">@corepatch.dev</span>
-                </a>
-              </div>
             </div>
-            
-            <div className="relative p-1 border border-primary/20">
-              <div className="bg-secondary/10 p-12 h-full flex flex-col justify-center text-center">
-                <span className="text-xs uppercase tracking-[0.3em] text-primary mb-6 block">PRONTO PARA COMEÇAR?</span>
-                <h3 className="text-3xl mb-10">Agende um diagnóstico gratuito da sua operação</h3>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-artdeco w-full py-5 text-sm uppercase tracking-widest font-bold">
-                  Iniciar conversa
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {technologies.map((tech) => (
+                <div key={tech} className="rounded-md border border-border bg-card px-4 py-5 text-center text-sm font-bold shadow-sm">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing bg-muted/45">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">Diferenciais</span>
+              <h2>Por que escolher a Core & Patch</h2>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {differentiators.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <article key={item.title} className="rounded-md border border-border bg-card p-7 shadow-sm">
+                    <Icon className="h-7 w-7 text-primary" />
+                    <h3 className="mt-5 text-xl">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing" id="faq">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow">FAQ</span>
+              <h2>Perguntas comuns antes de começar</h2>
+            </div>
+            <div className="mx-auto max-w-4xl divide-y divide-border rounded-md border border-border bg-card shadow-sm">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="group p-6 open:bg-muted/40">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+                    {faq.question}
+                    <ChevronRight className="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-90" />
+                  </summary>
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing bg-primary text-primary-foreground" id="contato">
+          <div className="container grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.22em] text-primary-foreground/70">Pronto para começar?</span>
+              <h2 className="mt-5 max-w-3xl text-primary-foreground">Descreva o problema do seu negócio. A gente responde em até 24h.</h2>
+              <p className="mt-5 max-w-2xl text-primary-foreground/78">
+                Você não precisa mandar briefing perfeito. Conte o que está manual, lento ou confuso, e nós traduzimos isso em um caminho técnico.
+              </p>
+            </div>
+            <div className="rounded-md bg-background p-6 text-foreground shadow-xl">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
+                <MessageCircle className="h-4 w-4" />
+                Chamar no WhatsApp
+              </a>
+              <div className="mt-6 space-y-4">
+                <a href={`mailto:${emailAddress}`} className="contact-link">
+                  <Mail className="h-5 w-5" />
+                  {emailAddress}
+                </a>
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="contact-link">
+                  <Instagram className="h-5 w-5" />
+                  @corepatch.dev
                 </a>
               </div>
             </div>
           </div>
-          
-          <div className="mt-32 pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <span className="text-xl font-extrabold tracking-[0.3em] text-primary mb-2">CORE & PATCH</span>
-              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">© {new Date().getFullYear()} TODOS OS DIREITOS RESERVADOS.</span>
-            </div>
-            <div className="flex gap-8">
-              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">SUZANO, SP</span>
-              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40">EST. 2024</span>
-            </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border bg-background py-10">
+        <div className="container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <span className="text-sm font-extrabold tracking-[0.18em]">CORE & PATCH</span>
+            <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">Software sob medida para pequenas empresas.</p>
+          </div>
+          <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+            <span>Suzano, SP</span>
+            <span>Est. 2024</span>
+            <span>© {new Date().getFullYear()} Todos os direitos reservados.</span>
           </div>
         </div>
       </footer>
