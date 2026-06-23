@@ -111,9 +111,7 @@ export default function Home() {
       <nav className="fixed top-0 z-50 w-full border-b border-primary/10 bg-background/80 backdrop-blur-md">
         <div className="container flex items-center justify-between py-6">
           <a href="#home" className="group flex items-center gap-4" onClick={closeMobileMenu}>
-            <div className="flex h-12 w-12 items-center justify-center border border-primary/50 bg-primary/10 transition-all duration-500 group-hover:border-primary">
-              <span className="font-serif text-xl font-black text-primary">C&P</span>
-            </div>
+            <img src="/images/logo.png" alt="Core & Patch Logo" className="h-12 w-12 object-contain border border-primary/20 transition-all duration-500 group-hover:border-primary/50" />
             <span className="hidden font-serif text-lg font-bold tracking-[0.3em] text-foreground sm:block">CORE & PATCH</span>
           </a>
 
@@ -330,7 +328,7 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex items-center gap-4">
-              <span className="font-serif text-xl font-black text-primary">C&P</span>
+              <img src="/images/logo.png" alt="Logo" className="h-8 w-8 object-contain" />
               <span className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">© 2026 CORE & PATCH</span>
             </div>
             
