@@ -22,7 +22,7 @@ import {
   Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import Hero3D from "../components/Hero3D";
+import Hero3DPremium from "../components/Hero3DPremium";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,26 +35,25 @@ export default function Home() {
     { href: "#solucoes", label: "Soluções" },
     { href: "#processo", label: "Processo" },
     { href: "#projetos", label: "Projetos" },
-    { href: "#faq", label: "FAQ" },
   ];
 
   const solutions = [
     {
       icon: MonitorSmartphone,
       title: "Soluções Web",
-      description: "Sites institucionais e landing pages de alto impacto que convertem visitantes em clientes.",
+      description: "Sites institucionais e landing pages que convertem visitantes em clientes com elegância.",
       items: ["Sites Premium", "Landing Pages", "Portais Corporativos"],
     },
     {
       icon: BarChart3,
       title: "Sistemas e Gestão",
-      description: "Sistemas internos e dashboards personalizados para organizar sua operação com elegância.",
+      description: "Dashboards e sistemas internos que organizam sua operação com sofisticação.",
       items: ["Gestão de Fluxo", "Dashboards", "SaaS sob medida"],
     },
     {
       icon: Zap,
       title: "Automação",
-      description: "Integrações inteligentes que eliminam o trabalho manual e otimizam seu tempo.",
+      description: "Integrações que eliminam o trabalho manual e otimizam seu tempo.",
       items: ["Fluxos Inteligentes", "Integrações API", "Bots de Atendimento"],
     },
   ];
@@ -63,12 +62,12 @@ export default function Home() {
     {
       step: "I",
       title: "Diagnóstico",
-      description: "Imersão completa no seu modelo de negócio para identificar gargalos operacionais.",
+      description: "Imersão no seu modelo de negócio para identificar os gargalos operacionais reais.",
     },
     {
       step: "II",
       title: "Arquitetura",
-      description: "Desenho da solução técnica com foco em escalabilidade e experiência do usuário.",
+      description: "Desenho técnico focado em escalabilidade, performance e experiência do usuário.",
     },
     {
       step: "III",
@@ -99,23 +98,36 @@ export default function Home() {
       name: "Prompt.Code",
       label: "AI / Tooling",
       href: "https://prompt-code.vercel.app/",
-      description: "Plataforma de engenharia de prompts para acelerar o desenvolvimento com IA.",
+      description: "Plataforma de engenharia de prompts para acelerar desenvolvimento com IA.",
     },
   ];
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-primary/10 bg-background/80 backdrop-blur-md">
-        <div className="container flex items-center justify-between py-6">
-          <a href="#home" className="group flex items-center gap-4" onClick={closeMobileMenu}>
-            <img src="/images/logo.png" alt="Core & Patch Logo" className="h-12 w-12 object-contain border border-primary/20 transition-all duration-500 group-hover:border-primary/50" />
-            <span className="hidden font-serif text-lg font-bold tracking-[0.3em] text-foreground sm:block">CORE & PATCH</span>
+      <nav className="fixed top-0 z-50 w-full border-b border-primary/10 bg-background/70 backdrop-blur-xl">
+        <div className="container flex items-center justify-between py-5">
+          <a href="#home" className="group flex items-center gap-3" onClick={closeMobileMenu}>
+            <img src="/images/logo.png" alt="Core & Patch Logo" className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110" />
+            <span className="hidden font-serif text-base font-bold tracking-[0.3em] text-foreground sm:block">CORE & PATCH</span>
           </a>
 
-          <div className="hidden items-center gap-10 md:flex">
+          <div className="hidden items-center gap-12 md:flex">
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="nav-link">
                 {link.label}
@@ -125,16 +137,16 @@ export default function Home() {
               <Globe className="h-3 w-3" />
               EN
             </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold !px-6 !py-3">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold !px-6 !py-2 text-[10px]">
               CONTATO
             </a>
           </div>
 
           <button
-            className="flex h-12 w-12 items-center justify-center border border-primary/30 md:hidden"
+            className="flex h-10 w-10 items-center justify-center border border-primary/30 md:hidden transition-colors hover:border-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6 text-primary" /> : <Menu className="h-6 w-6 text-primary" />}
+            {mobileMenuOpen ? <X className="h-5 w-5 text-primary" /> : <Menu className="h-5 w-5 text-primary" />}
           </button>
         </div>
 
@@ -143,7 +155,7 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute left-0 top-full w-full border-b border-primary/20 bg-background p-8 md:hidden"
+            className="absolute left-0 top-full w-full border-b border-primary/20 bg-background/95 backdrop-blur-xl p-6 md:hidden"
           >
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
@@ -155,7 +167,7 @@ export default function Home() {
                 <Globe className="h-4 w-4" />
                 ENGLISH VERSION
               </a>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold w-full" onClick={closeMobileMenu}>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold w-full !py-3" onClick={closeMobileMenu}>
                 FALE CONOSCO
               </a>
             </div>
@@ -166,26 +178,26 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-20">
-          <Hero3D />
+          <Hero3DPremium />
           <div className="container relative z-10">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl"
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="max-w-5xl"
             >
               <span className="eyebrow">Exclusividade em Software</span>
-              <h1 className="mb-8 leading-[1.1]">
-                A Arte de Construir <br />
-                <span className="text-gradient-gold">Soluções Digitais</span>
+              <h1 className="mb-8 leading-tight">
+                A Arte de <br />
+                <span className="text-gradient-gold">Construir Soluções</span>
               </h1>
-              <p className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              <p className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground">
                 Elevamos sua operação com sistemas personalizados que unem a sofisticação do design à robustez da engenharia moderna.
               </p>
-              <div className="flex flex-col gap-6 sm:flex-row">
+              <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-gold">
                   INICIAR PROJETO
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-3 h-4 w-4" />
                 </a>
                 <a href="#projetos" className="btn-outline-gold">
                   VER PORTFÓLIO
@@ -194,41 +206,54 @@ export default function Home() {
             </motion.div>
           </div>
           
-          {/* Art Deco Decorative Elements */}
-          <div className="absolute bottom-0 right-0 hidden h-64 w-64 opacity-20 lg:block">
+          {/* Art Deco Corner Elements */}
+          <div className="absolute bottom-0 right-0 hidden h-80 w-80 opacity-15 lg:block">
             <div className="absolute bottom-0 right-0 h-full w-full border-r-2 border-b-2 border-primary" />
-            <div className="absolute bottom-4 right-4 h-full w-full border-r border-b border-primary/50" />
-            <div className="absolute bottom-8 right-8 h-full w-full border-r border-b border-primary/20" />
+            <div className="absolute bottom-6 right-6 h-full w-full border-r border-b border-primary/50" />
+            <div className="absolute bottom-12 right-12 h-full w-full border-r border-b border-primary/20" />
           </div>
         </section>
 
         {/* Solutions Section */}
         <section id="solucoes" className="section-spacing relative">
           <div className="container">
-            <div className="section-heading">
+            <motion.div 
+              className="section-heading text-left lg:text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <span className="eyebrow">Nossas Verticais</span>
               <h2>Excelência em cada detalhe</h2>
-              <p className="text-lg text-muted-foreground">Transformamos complexidade em simplicidade através de um design intencional.</p>
-            </div>
+              <p className="mt-6 text-lg text-muted-foreground">Transformamos complexidade em simplicidade através de um design intencional.</p>
+            </motion.div>
             
-            <div className="grid gap-8 lg:grid-cols-3">
+            <motion.div 
+              className="grid gap-8 lg:grid-cols-3 mt-16"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               {solutions.map((solution, idx) => {
                 const Icon = solution.icon;
                 return (
                   <motion.div 
                     key={idx}
-                    whileHover={{ y: -10 }}
+                    variants={itemVariants}
+                    whileHover={{ y: -8 }}
                     className="art-deco-card group"
                   >
-                    <div className="mb-8 flex h-16 w-16 items-center justify-center border border-primary/30 bg-primary/5 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-foreground">
+                    <div className="mb-8 flex h-16 w-16 items-center justify-center border border-primary/30 bg-primary/5 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-background">
                       <Icon className="h-8 w-8" />
                     </div>
-                    <h3 className="mb-4">{solution.title}</h3>
-                    <p className="mb-8 text-muted-foreground">{solution.description}</p>
+                    <h3 className="mb-4 text-xl">{solution.title}</h3>
+                    <p className="mb-8 text-sm leading-relaxed text-muted-foreground">{solution.description}</p>
                     <ul className="space-y-3">
                       {solution.items.map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-sm font-medium text-muted-foreground">
-                          <div className="h-1 w-1 bg-primary" />
+                          <div className="h-1.5 w-1.5 bg-primary rounded-full flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -236,25 +261,38 @@ export default function Home() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Process Section */}
-        <section id="processo" className="section-spacing bg-card/30">
+        <section id="processo" className="section-spacing bg-card/20">
           <div className="container">
-            <div className="section-heading">
+            <motion.div 
+              className="section-heading text-left lg:text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <span className="eyebrow">Metodologia</span>
               <h2>O Caminho para a Perfeição</h2>
-            </div>
+            </motion.div>
             
-            <div className="grid gap-px bg-primary/10 md:grid-cols-4">
+            <div className="grid gap-px bg-primary/5 md:grid-cols-4 rounded-sm overflow-hidden">
               {process.map((step, idx) => (
-                <div key={idx} className="bg-background p-10 transition-colors hover:bg-card/50">
-                  <span className="mb-6 block font-serif text-4xl font-light text-primary/30">{step.step}</span>
-                  <h3 className="mb-4 text-xl">{step.title}</h3>
+                <motion.div 
+                  key={idx} 
+                  className="bg-background/80 p-10 transition-all duration-500 hover:bg-card/50 border border-primary/10"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                >
+                  <span className="mb-6 block font-serif text-5xl font-light text-primary/25">{step.step}</span>
+                  <h3 className="mb-4 text-lg font-semibold">{step.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -263,52 +301,76 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projetos" className="section-spacing">
           <div className="container">
-            <div className="flex flex-col items-end justify-between gap-6 md:flex-row md:items-center">
-              <div className="max-w-2xl">
+            <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <motion.div 
+                className="max-w-2xl"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
                 <span className="eyebrow">Portfólio</span>
                 <h2 className="mb-4">Obras em Produção</h2>
                 <p className="text-muted-foreground">Sistemas reais resolvendo problemas reais para empresas de visão.</p>
-              </div>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="nav-link flex items-center gap-2">
+              </motion.div>
+              <motion.a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="nav-link flex items-center gap-2 whitespace-nowrap"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
                 SOLICITAR DEMO <ChevronRight className="h-4 w-4" />
-              </a>
+              </motion.a>
             </div>
 
-            <div className="mt-16 grid gap-10 lg:grid-cols-3">
+            <motion.div 
+              className="grid gap-10 lg:grid-cols-3"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               {projects.map((project, idx) => (
-                <a 
+                <motion.a 
                   key={idx} 
                   href={project.href} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group block"
+                  variants={itemVariants}
+                  whileHover={{ y: -8 }}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden border border-primary/20">
-                    <div className="absolute inset-0 bg-primary/10 transition-transform duration-700 group-hover:scale-110" />
+                  <div className="relative aspect-[4/3] overflow-hidden border border-primary/20 bg-card/30">
+                    <div className="absolute inset-0 bg-primary/5 transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 flex items-center justify-center bg-background/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <span className="btn-outline-gold !px-6 !py-2">VISITAR SITE</span>
+                      <span className="btn-outline-gold !px-6 !py-2 text-[10px]">VISITAR SITE</span>
                     </div>
                   </div>
                   <div className="mt-6">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{project.label}</span>
-                    <h3 className="mt-2 text-2xl group-hover:text-primary transition-colors">{project.name}</h3>
+                    <h3 className="mt-3 text-2xl font-semibold group-hover:text-primary transition-colors">{project.name}</h3>
                     <p className="mt-3 text-sm text-muted-foreground">{project.description}</p>
                   </div>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="section-spacing relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-primary/5" />
-          <div className="container text-center">
+          <div className="absolute inset-0 -z-10 bg-primary/3" />
+          <div className="container">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="mx-auto max-w-3xl border border-primary/30 p-16"
+              transition={{ duration: 0.8 }}
+              className="mx-auto max-w-3xl border border-primary/20 p-16 text-center glass-effect"
             >
               <span className="eyebrow">Contato</span>
               <h2 className="mb-8">Pronto para elevar seu negócio?</h2>
@@ -327,7 +389,7 @@ export default function Home() {
       <footer className="border-t border-primary/10 py-12">
         <div className="container">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <img src="/images/logo.png" alt="Logo" className="h-8 w-8 object-contain" />
               <span className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">© 2026 CORE & PATCH</span>
             </div>
